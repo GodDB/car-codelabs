@@ -9,6 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Places">
 
+        <meta-data
+            android:name="androidx.car.app.minCarApiLevel"
+            android:value="1" />
+
         <service
             android:name="com.example.car_app_service.service.TestCarAppService"
             android:exported="true">
