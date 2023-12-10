@@ -2,25 +2,17 @@ package com.example.car_app_service.screen
 
 import android.text.Spannable
 import android.text.SpannableString
-import android.util.Log
 import androidx.car.app.CarContext
-import androidx.car.app.Screen
-import androidx.car.app.model.Action
-import androidx.car.app.model.CarLocation
 import androidx.car.app.model.Distance
 import androidx.car.app.model.DistanceSpan
 import androidx.car.app.model.ItemList
-import androidx.car.app.model.Pane
-import androidx.car.app.model.PaneTemplate
-import androidx.car.app.model.Place
 import androidx.car.app.model.PlaceListMapTemplate
-import androidx.car.app.model.PlaceMarker
 import androidx.car.app.model.Row
 import androidx.car.app.model.Template
 import com.example.car_app_service.Navigator
 import com.example.places.data.PlacesRepository
 
-internal class MainScreen(private val carContext: CarContext) : Screen(carContext) {
+internal class MainScreen(carContext: CarContext) : BaseScreen(carContext) {
     override fun onGetTemplate(): Template {
         val placesRepository = PlacesRepository()
         val itemListBuilder = ItemList.Builder()

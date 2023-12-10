@@ -1,7 +1,6 @@
 package com.example.car_app_service.screen
 
 import androidx.car.app.CarContext
-import androidx.car.app.Screen
 import androidx.car.app.model.Action
 import androidx.car.app.model.CarIcon
 import androidx.car.app.model.MessageTemplate
@@ -13,13 +12,12 @@ import androidx.core.graphics.drawable.IconCompat
 import com.example.android.cars.carappservice.R
 import com.example.car_app_service.Navigator
 import com.example.places.data.PlacesRepository
-import com.example.places.data.model.toIntent
 
 
 internal class DetailScreen(
-    private val carContext: CarContext,
+    carContext: CarContext,
     private var placeId: Int
-) : Screen(carContext) {
+) : BaseScreen(carContext) {
     override fun onGetTemplate(): Template {
         val place = PlacesRepository().getPlace(placeId)
             ?: return MessageTemplate.Builder("Place not found")
@@ -42,7 +40,7 @@ internal class DetailScreen(
             // you might on a phone.
             .setOnClickListener {
                 Navigator.moveToMain(screenManager, carContext)
-               // carContext.startCarApp(place.toIntent(CarContext.ACTION_NAVIGATE))
+                // carContext.startCarApp(place.toIntent(CarContext.ACTION_NAVIGATE))
             }
             .build()
 
